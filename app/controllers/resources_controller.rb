@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 class ResourcesController < ApplicationController
   def index
-    @resource = Resource.all
-    render json: @resource
+    @resources = Resource.all
+    render json: @resources
   end
 end
