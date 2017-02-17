@@ -2,10 +2,10 @@
 class CreateResources < ActiveRecord::Migration[5.0]
   def change
     create_table :resources do |t|
-      t.string :name
-      t.string :url
-      t.string :tag
-      t.string :content_type
+      t.string :name, null: false
+      t.string :url, null: false
+      t.string :tag, null: false
+      t.string :content_type, null: false
 
       t.timestamps
     end
