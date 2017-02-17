@@ -1,6 +1,6 @@
 # frozen_string_literal: true
-class ResourcesController < ApplicationController
-  before_action :set_resource, only: [:update, :destroy]
+class ResourcesController < ProtectedController
+  before_action :set_resource, only: [:show, :update, :destroy]
   def index
     @resources = Resource.all
     render json: @resources
@@ -12,7 +12,7 @@ class ResourcesController < ApplicationController
   end
 
   def create
-    @resource = Resource.new(resource_params)
+    @resource = current_user.resources.build(resource_params)
 
     if @resource.save
       render json: @resource, status: :created
@@ -36,7 +36,7 @@ class ResourcesController < ApplicationController
   end
 
   def set_resource
-    @resource = Resource.find(params[:id])
+    @resource = current_user.resources.find(params[:id])
   end
 
   private :set_resource

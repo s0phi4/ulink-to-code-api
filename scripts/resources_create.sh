@@ -5,6 +5,7 @@ URL_PATH="/resources"
 curl "${API}${URL_PATH}" \
   --include \
   --request POST \
+  --header "Authorization: Token token=$TOKEN" \
   --header "Content-Type: application/json" \
   --data '{
     "resource": {
@@ -14,6 +15,6 @@ curl "${API}${URL_PATH}" \
       "content_type": "'"${CONTENT_TYPE}"'"
     }
   }'
-  # --header "Authorization: Token token=$TOKEN" \
+
 
 echo
