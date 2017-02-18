@@ -5,6 +5,7 @@ URL_PATH="/resources/${ID}"
 curl "${API}${URL_PATH}" \
   --include \
   --request PATCH \
+  --header "Authorization: Token token=$TOKEN" \
   --header "Content-Type: application/json" \
   --data '{
     "resource": {
@@ -12,6 +13,6 @@ curl "${API}${URL_PATH}" \
       "url": "'"${URL}"'"
     }
   }'
-  # --header "Authorization: Token token=$TOKEN"
+
 
 echo
