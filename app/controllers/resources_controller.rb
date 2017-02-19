@@ -2,7 +2,7 @@
 class ResourcesController < ProtectedController
   before_action :set_resource, only: [:show, :update, :destroy]
   def index
-    @resources = Resource.all
+    @resources = current_user.resources.all
     render json: @resources
   end
 
